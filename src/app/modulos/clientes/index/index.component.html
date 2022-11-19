@@ -20,9 +20,14 @@
             <td>{{cliente.identificacion}}</td>
             <td>{{cliente.telefono}}</td>
             <td>{{cliente.correo}}</td>
-            <td><a routerLink="/clientes/editar" class="btn">
-                    Editar cliente
-                </a></td>
+            <td>
+                <a routerLink="/clientes/editar/{{cliente.id}}" class="btn">
+                    Editar
+                </a>
+                <button (click)="eliminarCliente(cliente.id)" class="btn">
+                    Eliminar 
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>

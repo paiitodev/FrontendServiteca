@@ -5,12 +5,14 @@ import { ClientesRoutingModule } from './clientes-routing.module';
 import { IndexComponent } from './index/index.component';
 import { CrearComponent } from './crear/crear.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditarComponent } from './editar/editar.component';
 
 
 @NgModule({
   declarations: [
     IndexComponent,
-    CrearComponent
+    CrearComponent,
+    EditarComponent
   ],
   imports: [
     CommonModule,
