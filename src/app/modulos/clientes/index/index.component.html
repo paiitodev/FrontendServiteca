@@ -1,1 +1,25 @@
-<h1>Mostrar pedidos</h1>
+<h1>Mostrar clientes</h1>
+<table class="centered">
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Identificacion</th>
+            <th>Teléfono</th>
+            <th>Correo</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{cliente.nombres}}</td>
+            <td>{{cliente.apellidos}}</td>
+            <td>{{cliente.identificacion}</td>
+            <td>{{cliente.telefono}</td>
+            <td>{{cliente.correo}</td>
+            <td><a routerLink="/clientes/crear" class="btn">     
+                Crear cliente
+                </a></td>
+        </tr>
+    </tbody>
+</table>
