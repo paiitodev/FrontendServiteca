@@ -8,7 +8,7 @@ import { ClienteService } from 'src/app/servicios/cliente.service';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-clientes: Cliente[]=[];
+clientes: Cliente[] = [];
 constructor(private clienteServicio: ClienteService) { }
   ngOnInit(): void {
     this.clienteServicio.obtenerClientes().subscribe(clientes => this.clientes = clientes);

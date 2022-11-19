@@ -10,26 +10,32 @@ import { ClienteService } from 'src/app/servicios/cliente.service';
   styleUrls: ['./crear.component.css']
 })
 export class CrearComponent implements OnInit {
+
   fgValidator: FormGroup = this.fb.group({
+    identificacion: ['', [Validators.required]],
     nombres: ['', [Validators.required]],
     apellidos: ['', [Validators.required]],
-    identificacion: ['', [Validators.required]],
     telefono: ['', [Validators.required]],
-    correo: ['', [Validators.required]]
+    correo: ['', [Validators.required]],
   });
-  constructor(private fb: FormBuilder,
+
+  constructor(
+    private fb: FormBuilder,
     private clienteServicio: ClienteService,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
+  
   crearCliente() {
     let cliente = new Cliente();
+    cliente.identificacion = this.fgValidator.controls["identificacion"].value;
     cliente.nombres = this.fgValidator.controls["nombres"].value;
     cliente.apellidos = this.fgValidator.controls["apellidos"].value;
-    cliente.identificacion = this.fgValidator.controls["identificacion"].value;
     cliente.telefono = this.fgValidator.controls["telefono"].value;
     cliente.correo = this.fgValidator.controls["correo"].value;
+
     this.clienteServicio.crearCliente(cliente).subscribe({
       next: (cliente) => {
         alert("Cliente almacenado");

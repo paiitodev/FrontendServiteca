@@ -7,14 +7,16 @@ import { Cliente } from '../modelos/cliente';
   providedIn: 'root'
 })
 export class ClienteService {
-  
+
   url: string = "http://localhost:3000";
+
   constructor(private http: HttpClient) { }
-  obtenerClientes(): Observable<Cliente[]>{
+
+  obtenerClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`${this.url}/clientes`);
-    }
-    crearCliente(cliente: Cliente):Observable<Cliente>{
-return this.http.post<Cliente>(`${this.url}/clientes`,
-cliente);
-}
+  }
+
+  crearCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(`${this.url}/clientes`,cliente);
+  }
 }
