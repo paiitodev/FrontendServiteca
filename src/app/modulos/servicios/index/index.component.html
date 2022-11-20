@@ -1,1 +1,20 @@
-<p>index works!</p>
+<a routerLink="/servicios/crear" class="btn">
+    Crear servicio
+</a>
+<h1>Mostrar Servicios</h1>
+<table class="centered">
+    <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let servicio of servicios">
+            <td>{{servicio.codigo}}</td>
+            <td>{{servicio.nombre}}</td>
+            <td>{{servicio.precio}}</td>
+        </tr>
+    </tbody>
+</table>

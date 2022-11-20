@@ -25,7 +25,6 @@ const routes: Routes = [
   import('./modulos/servicio-ventas/servicio-ventas.module').then(
         (x) => x.ServicioVentasModule),},
   {path: '**', component: ErrorComponent },
-
 ];
 
 @NgModule({
