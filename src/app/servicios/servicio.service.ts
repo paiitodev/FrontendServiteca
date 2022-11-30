@@ -16,9 +16,19 @@ export class ServicioService {
     return this.http.get<Servicio[]>(`${this.url}/servicios`);
   }
 
-  crearServicio(servicio: Servicio):
-    Observable<Servicio> {
+  crearServicio(servicio: Servicio): Observable<Servicio> {
     return this.http.post<Servicio>(`${this.url}/servicios`, servicio);
   }
 
+  actualizarServicio(servicio: Servicio): Observable<Servicio> {
+    return this.http.put<Servicio>(`${this.url}/servicios/${servicio.id}` , servicio);
+  }
+
+  buscarServicio(id: String): Observable<Servicio>{
+    return this.http.get<Servicio>(`${this.url}/servicios/${id}`);
+  }
+
+  eliminarServicio(id: String): Observable<any>{
+    return this.http.delete(`${this.url}/servicios/${id}`);
+    }
 }

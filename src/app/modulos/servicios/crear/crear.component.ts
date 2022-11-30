@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Servicio } from 'src/app/modelos/servicio';
-import { ClienteService } from 'src/app/servicios/cliente.service';
 import { ServicioService } from 'src/app/servicios/servicio.service';
 
 @Component({
@@ -14,14 +13,15 @@ export class CrearComponent implements OnInit {
 
   fgValidator: FormGroup = this.fb.group({
     codigo: ['', [Validators.required]],
-    nombre: ['', [Validators.required]],
-    precio: ['', [Validators.required]]
+    nombres: ['', [Validators.required]],
+    precio: ['', [Validators.required]],
   });
-
+  
   constructor(
     private fb: FormBuilder,
     private servicioServicio: ServicioService,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +31,7 @@ export class CrearComponent implements OnInit {
     servicio.codigo = this.fgValidator.controls["codigo"].value;
     servicio.nombre = this.fgValidator.controls["nombre"].value;
     servicio.precio = parseInt(this.fgValidator.controls["precio"].value);
+
     this.servicioServicio.crearServicio(servicio).subscribe({
       next: (servicio) => {
         alert("Servicio almacenado");

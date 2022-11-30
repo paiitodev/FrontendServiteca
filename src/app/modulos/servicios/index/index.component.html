@@ -1,7 +1,7 @@
 <a routerLink="/servicios/crear" class="btn">
     Crear servicio
 </a>
-<h1>Mostrar Servicios</h1>
+<h1>Mostrar servicios</h1>
 <table class="centered">
     <thead>
         <tr>
@@ -15,6 +15,14 @@
             <td>{{servicio.codigo}}</td>
             <td>{{servicio.nombre}}</td>
             <td>{{servicio.precio}}</td>
+            <td>
+                <a routerLink="/servicios/editar/{{servicio.id}}" class="btn">
+                    Editar
+                </a>
+                <button (click)="eliminarServicio(servicio.id)" class="btn">
+                    Eliminar
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>

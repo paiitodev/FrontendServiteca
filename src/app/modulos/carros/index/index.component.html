@@ -1,1 +1,24 @@
-<p>index works!</p>
+<a routerLink="/carros/crear" class="btn">
+    Crear carro
+</a>
+<h1>Mostrar carros</h1>
+<table class="centered">
+    <thead>
+        <tr>
+            <th>Placa</th>
+            <th>Color</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let carro of carros">
+            <td>{{carro.placa}}</td>
+            <td>{{carro.color}}</td>
+            <td>{{carro.marca}}</td>
+            <td>{{carro.modelo}}</td>
+            <td>{{carro.year}}</td>
+        </tr>
+    </tbody>
+</table>
